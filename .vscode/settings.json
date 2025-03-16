@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "edit_shop",
+            "connectString": "postgresql://bloxy_owner:Y7N0rhAjiVsG@ep-falling-sky-a2bqo6ev-pooler.eu-central-1.aws.neon.tech/bloxy?sslmode=require"
+        }
+    ]
+}

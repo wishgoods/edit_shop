@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "zvijude/style.css";
+
+body{
+  padding-inline: 5%;
+}
+img{
+  object-fit: cover;
+}
