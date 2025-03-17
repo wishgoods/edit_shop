@@ -21,7 +21,7 @@ export default function FaqForm({ cmp }) {
 
   return (
     <div>
-      {cmp.data.map((el, i) => {
+      {cmp?.data?.map((el, i) => {
         return (
           <form key={i}>
             <Input lbl='שאלה' defaultValue={el.q} onChange={(e) => (el.q = e.target.value)} />
