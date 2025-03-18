@@ -1,2 +1,2 @@
-DELETE FROM comps WHERE id = 25;
+DELETE FROM comps WHERE id = 29;
 SELECT * FROM comps

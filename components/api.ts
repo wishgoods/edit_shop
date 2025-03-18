@@ -11,3 +11,15 @@ export async function saveComp(cmp) {
 
   revalidatePath("/")
 }
+
+export async function savePrefixComp(cmp) {
+  const data = [cmp.pref, cmp.desc, cmp.suf]
+
+  if (!cmp.id) await db("comps").insert({ name: "prefix", data: JSON.stringify(data) })
+  else
+    await db("comps")
+      .update({ name: "prefix", data: JSON.stringify(data) })
+      .where({ id: cmp.id })
+
+  revalidatePath("/")
+}
