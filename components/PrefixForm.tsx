@@ -4,40 +4,46 @@ import { Btn } from "zvijude/btns"
 import { useState } from "react"
 import { savePrefixComp } from "./api"
 
-let obj: any = { pref: "", desc: "", suf: [] }
-
 export default function PrefixForm({ cmp }) {
   const [state, setState] = useState(true)
   const render = () => setState(!state)
 
   function handleAddForm() {
-    obj.suf.push("")
+    cmp.data.suf.push("")
     render()
   }
 
   function handleSaveForm() {
-    savePrefixComp(obj)
+    savePrefixComp(cmp)
   }
 
   return (
     <div>
-      <Input lbl='תחילית' defaultValue={obj.pref} onChange={(e) => (obj.pref = e.target.value)} />
-      <Input lbl='תיאור' defaultValue={obj.desc} onChange={(e) => (obj.desc = e.target.value)} />
-      {obj.suf?.map((el, i) => {
-        return (
-          <div key={i}>
-            <form>
+      <Input
+        lbl='תחילית'
+        defaultValue={cmp.data.pref}
+        onChange={(e) => (cmp.data.pref = e.target.value)}
+      />
+      <Input
+        lbl='תיאור'
+        defaultValue={cmp.data.desc}
+        onChange={(e) => (cmp.data.desc = e.target.value)}
+      />
+      <form>
+        {cmp.data.suf?.map((el, i) => {
+          return (
+            <div key={i}>
               <Input
                 lbl='סופית'
                 defaultValue={el}
-                onChange={(e) => (obj.suf[i] = e.target.value)}
+                onChange={(e) => (cmp.data.suf[i] = e.target.value)}
               />
-            </form>
-          </div>
-        )
-      })}
-      <Btn lbl='הוסף' onClick={handleAddForm} />
-      <Btn lbl='שמור הכל' onClick={handleSaveForm} />
+            </div>
+          )
+        })}
+        <Btn type='button' lbl='הוסף' onClick={handleAddForm} />
+        <Btn lbl='שמור הכל' onClick={handleSaveForm} />
+      </form>
     </div>
   )
 }

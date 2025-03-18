@@ -9,9 +9,9 @@ import TestamonyForm from "@/components/TestamonyForm"
 import { db } from "@/db"
 
 export default async function Home() {
-  let catsData = await db("comps").where({ id: 31 }).first()
+  let catsData = await db("comps").where({ id: 33 }).first()
   if (!catsData) {
-    catsData = {}
+    catsData = { data: { pref: "", desc: "", suf: [] }, name: "prefix" }
   }
 
   return (
